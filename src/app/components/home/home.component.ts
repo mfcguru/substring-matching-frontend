@@ -9,7 +9,7 @@ import axios from 'axios';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  matchingLogicTypes = [
+  matchingAlgorithmTypes = [
     { id: 0, text: 'OffsetBased' },
     { id: 1, text: 'RegexBased' },
   ];
@@ -17,11 +17,11 @@ export class HomeComponent implements OnInit {
   model = {
     text: 'How much wood would a woodchuck chuck if a woodchuck could chuck wood? He would chuck, he would, as much as he could, and chuck as much wood as a woodchuck would if a woodchuck could chuck wood.',
     subtext: '',
-    matchingLogicType: 0,
+    matchingAlgorithmType: 0,
   };
 
   message = '';
-  selectedMatchingLogic = ''
+  selectedMatchingAlgorithmType = ''
   showLoading = false;
   showError = false;
   showSuccess = false;
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
       .post(url, this.model)
       .then((response) => {
         let positions = response.data.positions.join(', ') 
-        self.selectedMatchingLogic = response.data.selectedMatchingLogicType               
+        self.selectedMatchingAlgorithmType = response.data.selectedMatchingAlgorithmType               
         if (response.data.positions.length == 1) {
           self.message = 'A matching substring was found at the following zero-based position [ ' + positions + ' ]'        
         } else {
