@@ -1,0 +1,63 @@
+<div>
+  <h4 class="text-center">Subtext Matching</h4>
+  <hr />
+  
+  <div *ngIf="showLoading">
+    <div class="alert alert-info text-center">
+        <span>{{ message }}</span>
+      <i class="fas fa-circle-notch fa-spin"></i>
+    </div>
+  </div>
+
+  <div *ngIf="showError">
+    <div class="alert alert-danger text-center">
+      <span>{{ message }}</span>
+    </div>
+  </div>
+
+  <div *ngIf="showSuccess">
+    <div class="alert alert-success text-center">
+        <p>Success!</p>
+        <p class="tex-info">{{ message }}</p>
+        <p class="tex-info">Selected matching logic is {{ selectedMatchingLogic }}</p>
+    </div>
+  </div>
+
+  <div class="px-20">
+    <div class="form-group">
+      <label>Text *</label>
+      <textarea cols="40" rows="5" class="form-control" [(ngModel)]="model.text"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Subtext *</label>
+      <input class="form-control" type="text" [(ngModel)]="model.subtext" />
+    </div>
+    <div class="form-group">
+      <label>Matching Algoritm *</label>
+      <select class="form-control" [(ngModel)]="model.matchingLogicType">
+        <option
+          *ngFor="let matchingLogicType of matchingLogicTypes"
+          [ngValue]="matchingLogicType.id"
+        >
+          {{ matchingLogicType.text }}
+        </option>
+      </select>
+    </div>
+    <button class="btn btn-primary float-right" (click)="submit()">
+      Find Match
+    </button>
+    <div class="clearfix" ></div>
+  </div>
+</div>
+
+
+<br>
+
+<div class="alert alert-warning text-left">
+    <p>The submitted form will be validated according to the following business rules:</p>
+    <ul>
+        <li>All fields are required</li>
+        <li>Subtext field cannot be longer than the text field</li>
+        <li>Subtext must occur in the text field at least once</li>
+    </ul>
+</div>

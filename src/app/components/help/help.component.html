@@ -1,0 +1,116 @@
+<div class="mb5">
+    <h3>SubtextMatching Technical Notes</h3>
+    <hr />
+    <ul>
+        <li><a routerLink="/help" fragment="downloads">Downloads</a></li>
+        <li><a routerLink="/help" fragment="architecture">Architecture</a></li>
+        <li><a routerLink="/help" fragment="development-tools">Development Tools/Frameworks</a></li>
+        <li><a routerLink="/help" fragment="design-patterns">Design Patterns</a></li>
+        <li><a routerLink="/help" fragment="unit-testing">Unit Testing</a></li>
+        <li><a routerLink="/help" fragment="deploying-to-heroku">Deploying to Heroku</a></li>
+
+        <div id="downloads" class="pt-5">
+            <h5>Downloads</h5>
+            <p>The code for the backend can be cloned or downloaded in this <a href="https://github.com/mfcguru/knockout-demo-clean">repository</a>.</p>
+            <p>The frontend application can be downloaded <a href="https://github.com/mfcguru/knockout-demo-layered">here</a>.</p>
+        </div>
+
+        <div id="architecture" class="pt-5">
+            <h5>Architecture</h5>
+            <p>
+                The architectural implementation employed is called Vertical Slice
+                Architecture. This architecture was introduced by Jimmy Boggard, who
+                is also the creator of MediatR and the very popular AutoMapper. VSA
+                itself was derived from Bob Martin's Clean Architecture. The primary
+                difference is that VSA strongly prescribes a single assembly for the
+                entire project as opposed to the more commonly industry-practiced
+                multi-tiered assemblies typical with N-tier architectures, where Clean
+                Architecture is not opinionated on the number of assemblies. VSA also
+                prioritizes code maintainability and flexibility over code re-use.
+                VSA and Clean Architecture are both Use-Case driven architectures.
+              </p>
+        </div>
+
+        <div id="development-tools" class="pt-5">
+            <h5>Development Tools/Frameworks</h5>
+            <p><strong>Backend</strong></p>
+            <ul>
+                <li>.Net 5</li>
+                <li>.Net Core built-in dependency injection</li>
+                <li>MediatR</li>                
+                <li>MS Test</li>
+                <li>Moq</li>
+            </ul>
+            <p class="pt-3"><strong>Frontend</strong></p>
+            <ul>
+                <li>Angular</li>
+                <li>Bootstrap</li>
+                <li>Fontawesome</li>
+                <li>Axios</li>
+            </ul>
+            <p class="pt-3"><strong>Others</strong></p>
+            <ul>
+                <li>Design Patterns: Factory + Strategy Pattern</li>
+                <li>Docker</li>
+                <li>Heroku</li>
+            </ul>
+        </div>
+
+        <div id="design-patterns" class="pt-5">
+            <h5>Design Patterns</h5>
+            <p>Factory + Strategy Pattern</p>
+            <img src="../../../assets/design-patterns.png" />
+        </div>
+
+        <div id="unit-testing" class="pt-5">
+            <h5>Unit Testing</h5>
+            <p>Unit testing is BDD (Behavioral Driven Design) as opposed to testing by implementation.</p>
+            <p>
+              The naming convention for test cases follow the pattern
+              &lt;UseCase&gt;_&lt;BusinessRule&gt;.
+            </p>
+          </div>
+
+        <div id="deploying-to-heroku" class="pt-5">
+            <h5>Deploying to Heroku</h5>
+            <ul>
+                <li>Download and intall Docker for Windows</li>
+                <li>Create a Heroku account</li>
+                <li>Create a Heroku app</li>
+                <li>Download Heroku CLI</li>
+                <li>
+                    Create a docker container using the Docker file provided in the
+                    solution
+                </li>
+                <li>
+                    Make sure to name the container exactly the same as the Heroku app
+                    created above
+                </li>
+                <ul>
+                    <li>
+                        e.g. docker build -t knockoutdemo . (where knockoutdemo
+                        is the app name created in Heroku)
+                    </li>
+                </ul>
+                <li>Open a command shell and execute the following:</li>
+                <ul>
+                    <li>
+                        heroku login (this will open the browser and you can login to
+                        Heroku)
+                    </li>
+                    <li>heroku container:login</li>
+                    <li>heroku container:push -a &lt;your-container-name&gt; web</li>
+                    <li>heroku container:release -a &lt;your-container-name&gt;</li>
+                </ul>
+                <li>Done</li>
+            </ul>
+            <br />
+            <p>
+                [NOTE*: The docker script provided is intended for Heroku. If you
+                need your container to run locally you will need to change EXPOSE
+                $&#123;PORT&#125; to EXPOSE 80 (or any local port available)]
+            </p>
+        </div>
+    </ul>
+    <br />
+</div>
