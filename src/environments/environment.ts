@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  // apiBaseUrl: 'http://localhost:28078/api'
-  apiBaseUrl: 'https://subtext-matching-api.herokuapp.com/api'
+   apiBaseUrl: 'http://localhost:28078/api'
 };
 
 /*
